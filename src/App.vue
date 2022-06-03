@@ -1,30 +1,53 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+    <comment-form @addComment="createComments" />
+    <comment-list v-bind:comments="comments" />
+  </div>
 </template>
 
+<script>
+import CommentForm from "./components/CommentForm";
+
+import CommentList from "./components/CommentList";
+
+export default {
+  components: {
+    CommentForm,
+    CommentList,
+  },
+  data() {
+    return {
+      comments: [
+        {
+          id: 1,
+          name: "Samar mirafzal",
+          email: "usmonjonovmirafzal0713@gmail.com ",
+          content: "dddddd  ddd dd ",
+        },
+        {
+          id: 2,
+          name: "Jasur mirafzal",
+          email: "Nemar@gmail.com ",
+          content: "dddddd dd dd  ddd dd ",
+        },
+        {
+          id: 3,
+          name: "Nemar mirafzal",
+          email: "Samr@gmail.com ",
+          content: "dddddd  drer ddd dd ",
+        },
+      ],
+    };
+  },
+  methods: {
+    createComments(comment) {
+      this.comments.push(comment);
+    },
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
+
+<!-- </style> -->
