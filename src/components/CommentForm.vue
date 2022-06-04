@@ -3,20 +3,20 @@
     <div class="w-75 mx-auto">
       <h3>Add Comments</h3>
       <form @submit.prevent>
-        <input
-          v-model="comment.name"
+        <my-input
+          v-model:modelValue="comment.name"
           type="text"
           placeholder="name"
           class="form-control"
         />
-        <input
-          v-model="comment.email"
+        <my-input
+          v-model:modelValue="comment.email"
           type="text"
           placeholder="Email"
           class="form-control my-3"
         />
-        <input
-          v-model="comment.content"
+        <my-input
+          v-model:modelValue="comment.content"
           type="text"
           placeholder="Content"
           class="form-control"
@@ -33,8 +33,9 @@
 
 <script>
 import MyButton from './UI/MyButton.vue';
+import MyInput from './UI/MyInput.vue';
 export default {
-  components: { MyButton },
+  components: { MyButton, MyInput },
   data() {
     return {
       comment: {
