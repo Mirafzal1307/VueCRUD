@@ -16,7 +16,7 @@
           class="form-control my-3"
         />
         <my-input
-          v-model:modelValue="comment.content"
+          v-model:modelValue="comment.body"
           type="text"
           placeholder="Content"
           class="form-control"
@@ -41,7 +41,7 @@ export default {
       comment: {
         name: "",
         email: "",
-        content: "",
+        body: "",
       },
     };
   },
@@ -52,7 +52,7 @@ export default {
       this.comment = {
         name: "",
         email: "",
-        content: "",
+        body: "",
       };
     },
   },
