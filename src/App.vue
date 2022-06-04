@@ -1,19 +1,25 @@
 <template>
+<navbar class="container" :showModal="showModal" />
   <div>
+    <my-modal  v-model:show="modalVisible" >
     <comment-form @addComment="createComments" />
-    <comment-list v-bind:comments="comments" />
+    </my-modal>
+    <comment-list :comments="comments" @remove="removeComment" />
   </div>
 </template>
 
 <script>
 import CommentForm from "./components/CommentForm";
-
 import CommentList from "./components/CommentList";
+import Navbar from "@/components/Navbar"
+
 
 export default {
   components: {
     CommentForm,
     CommentList,
+    Navbar
+
   },
   data() {
     return {
@@ -37,12 +43,19 @@ export default {
           content: "dddddd  drer ddd dd ",
         },
       ],
+      modalVisible: false
     };
   },
   methods: {
     createComments(comment) {
       this.comments.push(comment);
     },
+    removeComment(comment){
+          this.comments = this.comments.filter(c => c.id !== comment.id);
+    },
+    showModal(){
+      this.modalVisible = true;
+    }
   },
 };
 </script>
