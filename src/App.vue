@@ -10,9 +10,9 @@
       @remove="removeComment"
       v-if="!isLoading"
     />
-    <div v-else class="d-flex justify-content-center" >
+    <div v-else class="d-flex justify-content-center">
       <div class="spinner-grow" role="status">
-        <span class="visually-hidden "> Loading...</span>
+        <span class="visually-hidden"> Loading...</span>
       </div>
     </div>
   </div>
@@ -35,6 +35,7 @@ export default {
       comments: [],
       modalVisible: false,
       isLoading: false,
+     
     };
   },
   methods: {
@@ -49,15 +50,15 @@ export default {
     },
     async fetchComments() {
       try {
-        this.isLoading = true ;
+        this.isLoading = true;
         const response = await axios.get(
           "https://jsonplaceholder.typicode.com/comments?_limit=10"
         );
         this.comments = response.data;
-      this.isLoading = false;
+        this.isLoading = false;
       } catch (e) {
-        alert('Something went wrong');
-      }finally{
+        alert("Something went wrong");
+      } finally {
         this.isLoading = false;
       }
     },

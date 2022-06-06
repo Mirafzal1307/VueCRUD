@@ -32,22 +32,38 @@
       <span class="fs-4">Pricing example</span>
     </a>
 
-    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-      <button
+    <nav class="d-inline-flex m-2 mt-md-0 ms-md-auto">
+      <my-button
         @click="showModal"
-        class="mt-2 btn btn-primary text-decoration-none"
+        class="mt-2 py-2 btn btn-primary text-decoration-none"
         href="#"
       >
         Add new Comment
-      </button>
+      </my-button>
     </nav>
+    <my-select
+      class="w-25 m-2"
+      v-model="selectedSort"
+      :options="selectOptions"
+    />
   </div>
 </template>
 
 <script>
 export default {
-  showModal: {
-    type: Function,
+  props: {
+    showModal: {
+      type: Function,
+    },
+  },
+  data() {
+    return {
+      selectedSort: "",
+      selectOptions: [
+        { value: "name", name: "Filter by name" },
+        { value: "email", name: "Filter by email" },
+      ],
+    };
   },
 };
 </script>
