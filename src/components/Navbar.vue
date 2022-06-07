@@ -9,8 +9,8 @@
       border-bottom
     "
   >
-    <a
-      href="/"
+    <router-link
+      to="/"
       class="d-flex align-items-center text-dark text-decoration-none"
     >
       <svg
@@ -30,40 +30,16 @@
         ></path>
       </svg>
       <span class="fs-4">Pricing example</span>
-    </a>
+    </router-link>
 
     <nav class="d-inline-flex m-2 mt-md-0 ms-md-auto">
-      <my-button
-        @click="showModal"
-        class="mt-2 py-2 btn btn-primary text-decoration-none"
-        href="#"
-      >
-        Add new Comment
-      </my-button>
+      <my-button  @click="$router.push('/comment')" class="border" to="/comment"> Comments </my-button>
+      <my-button  @click="$router.push('/about')" class="border mx-2 " to="/about"> About </my-button>
     </nav>
-    <my-select
-      class="w-25 m-2"
-      v-model="selectedSort"
-      :options="selectOptions"
-    />
   </div>
 </template>
 
 <script>
-export default {
-  props: {
-    showModal: {
-      type: Function,
-    },
-  },
-  data() {
-    return {
-      selectedSort: "",
-      selectOptions: [
-        { value: "name", name: "Filter by name" },
-        { value: "email", name: "Filter by email" },
-      ],
-    };
-  },
-};
-</script>
+import MyButton from "./UI/MyButton.vue";
+export default {};
+</script>MyButton

@@ -2,20 +2,25 @@
   <div class="comment">
     <div>
       <p>
-        {{ comment.name }} 
+        {{ comment.name }}
       </p>
-      <b> Content: </b>{{ comment.body }}  <br>
+      <b> Content: </b>{{ comment.body }} <br />
       <b> {{ comment.email }} </b>
     </div>
-    <div>
-      <my-button class="btn btn-danger" @click="$emit('remove' , comment)" > Delete </my-button>
+    <div class="d-flex" >
+      <my-button class="btn btn-secondary " @click="$router.push(`/comment/${comment.id} `)">
+        Open
+      </my-button>
+
+      <my-button class="btn btn-danger" @click="$emit('remove', comment)">
+        Delete
+      </my-button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
   props: {
     comment: {
       type: Object,
